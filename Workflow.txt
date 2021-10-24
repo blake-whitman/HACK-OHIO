@@ -1,0 +1,7 @@
+Workflow
+
+1. Split up into two groups of two for front end/back end
+2. Create Twitter dev account(s)
+2. Front end creates website template–plans visualization tactics, possibly using Google Maps API
+3. Back end works to develop algorithm that pulls Twitter data from large cities and analyzes sentiment. Certain phrases will be compared throughout the cities to gauge disparity.
+4. Work to use the data to perform meaningful visualizations.
