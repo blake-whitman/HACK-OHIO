@@ -1,7 +1,19 @@
 Workflow
 
-1. Split up into two groups of two for front end/back end
-2. Create Twitter dev account(s)
-2. Front end creates website template–plans visualization tactics, possibly using Google Maps API
-3. Back end works to develop algorithm that pulls Twitter data from large cities and analyzes sentiment. Certain phrases will be compared throughout the cities to gauge disparity.
-4. Work to use the data to perform meaningful visualizations.
+Frontend (Nathan Rogers)
+• Develop web app to display visualizations
+• The web app should be able to graphically display pharmaceutical prescriber data
+  JavaScript library examples
+  https://d3js.org
+  https://www.chartjs.org
+
+Backend (Blake Whitman)
+• Add the ability to report on who the top doctors are based on total prescriptions (TRx) by
+product
+    - more prescriptions == better (potentially)
+• Add the ability to report on the trend of total prescriptions (TRx) based on product
+    - need to filter by product before analyzing trend of TRx (line graph)
+• Add the ability to predict future top targets based on new prescriptions (NRx)
+    - assuming we understand what this means, we are searching for high counts of new prescriptions for drugs; these are the possible contenders for future "top      
+    targets"
+Junbo Chen helps where he is needed
