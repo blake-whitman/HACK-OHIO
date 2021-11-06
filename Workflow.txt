@@ -17,4 +17,3 @@ product
     - assuming we understand what this means, we are searching for high counts of new prescriptions for drugs; these are the possible contenders for future "top      
     targets"
 Junbo Chen helps where he is needed
-test
