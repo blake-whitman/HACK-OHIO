@@ -11,7 +11,9 @@ DATABASE = "../../database/mydb.db"
 def get_db():
     db = getattr(Flask, "_database", None)
     if db is None:
-        db = Flask._database = sqlite3.connect(DATABASE, check_same_thread=False)
+        db = Flask._database = sqlite3.connect(
+            DATABASE, check_same_thread=False, isolation_level=None
+        )
     return db
 
 

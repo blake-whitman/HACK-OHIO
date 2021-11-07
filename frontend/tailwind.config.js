@@ -30,8 +30,13 @@ module.exports = {
         light: '#33395C',
         DEFAULT: '#212549',
         dark: '#1A1E40'
+      },
+      drugs: {
+        red: '#FF6384',
+        blue: '#36A2EB',
+        yellow: '#FFCE56',
+        teal: '#4BC0C0'
       }
-
     },
     extend: {},
   },

@@ -1,7 +1,7 @@
 import Link from 'next/Link'
 import { useRouter } from 'next/router'
 
-export default function Sidebar({active}){
+export default function Sidebar(){
     function activePage(){
         const router = useRouter()
         return router.pathname
@@ -22,7 +22,7 @@ export default function Sidebar({active}){
                     </li>
                     </Link>
                     <Link href="/analytics">
-                    <li className={`items-center flex flex-row m-4 text-lg ${activePage() == "/analytics" ? "text-white" : "text-blue-lightest hover:text-white"}`}>
+                    <li className={`items-center flex flex-row m-4 text-lg ${activePage().includes("analytics") ? "text-white" : "text-blue-lightest hover:text-white"}`}>
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" /></svg>
                         Analytics
                     </li>
