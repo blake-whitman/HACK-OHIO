@@ -9,7 +9,7 @@ export default function topDoctorNewPerscriptions(){
     function logValue() {
         console.log(value);
     }
-    const { data: info, error } = useSwr('http://172.28.244.244:105/topnew/Cholecap', fetcher)
+    const { data: info, error } = useSwr(`${process.env.API_LINK}/topnew/Cholecap`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
     console.log(info)

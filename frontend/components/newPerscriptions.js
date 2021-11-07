@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function NewPerscriptions(){
-    const { data: info, error } = useSwr('http://172.28.244.244:105/data/nrx', fetcher)
+    const { data: info, error } = useSwr(`${process.env.API_PATH}/data/nrx`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
     console.log(info)

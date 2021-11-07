@@ -3,7 +3,7 @@ import { Line } from 'react-chartjs-2';
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function TotalPerscriptions(){
-    const { data: info, error } = useSwr('http://172.28.244.244:105/data/trx', fetcher)
+    const { data: info, error } = useSwr(`${process.env.API_LINK}/data/trx`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
     console.log(info)
