@@ -7,6 +7,7 @@ module.exports = {
       'alpino': ['Alpino-Variable', 'sans-serif']
     },
     borderRadius:{
+      md: '0.33rem',
       lg: '1rem'
     },
     colors: {

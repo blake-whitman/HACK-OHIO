@@ -1,7 +1,15 @@
 import { Bar } from 'react-chartjs-2';
-import axios from 'axios'
-;
-const Profile = ({info, error}) => {
+import { useRouter } from 'next/router'
+import useSwr from 'swr'
+
+
+const fetcher = (url) => fetch(url).then((res) => res.json())
+export default function Profile() {
+  const router = useRouter();
+  const { id } = router.query;
+  const { data: info, error } = useSwr(`http://172.28.244.244:105/profile/${id}`, fetcher)
+  if (error) return <div>Faild to load data...</div>
+  if (!info) return <div>Loading...</div>
   var data = {
     labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
     datasets: [
@@ -79,16 +87,3 @@ const Profile = ({info, error}) => {
         </>
     )
 }
-
-
-Profile.getInitialProps = async ctx => {
-  try {
-    const res = await axios.get('http://172.28.244.244:105/profile/3');
-    const info = res.data;
-    return { info };
-  } catch (error) {
-    return { error };
-  }
-};
-
-export default Profile;

@@ -1,6 +1,11 @@
 import 'tailwindcss/tailwind.css'
-import Link from "next/link"
+import TotalPerscriptions from '../components/totalPerscriptions'
+import NewPerscriptions from '../components/newPerscriptions'
+import TopDoctorNewPerscriptions from '../components/topDoctorNewPerscriptions'
+import topDoctorNewPerscriptions from '../components/topDoctorNewPerscriptions'
+
 export default function Home() {
+  
   return (
     <>
       <main role="main" className="h-full inline w-full sm:w-3/4 md:w-4/5">
@@ -10,11 +15,11 @@ export default function Home() {
             <input className="shadow-md rounded-lg bg-white h-10 px-5 pr-16" type="search" name="search" placeholder="Search" />
           </div>
         </div>
-        <div className="ml-10 mr-10 flex flex-wrap gap-8">
-          <div className="bg-white shadow-lg rounded-lg h-72 w-72"></div>
-          <div className="bg-white shadow-lg rounded-lg h-72 w-72"></div>
-          <div className="bg-white shadow-lg rounded-lg h-72 w-72"></div>
-          <div className="bg-white shadow-lg rounded-lg h-72 w-72"></div>
+        <div className="flex flex-wrap ml-10 mr-10 flex flex-wrap gap-8">
+          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"><TotalPerscriptions/></div>
+          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"><NewPerscriptions /></div>
+          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"><TopDoctorNewPerscriptions /></div>
+          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"></div>
           
 
         </div>
