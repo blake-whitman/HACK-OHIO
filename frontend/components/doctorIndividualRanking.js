@@ -12,10 +12,10 @@ export default function doctorIndividualRanking({id}){
     return(
         <> 
             <div className="flex flex-row p-4">
-                <h1 className="flex-1 ml-4 text-grey-dark font-medium text-md">New {product} Perscriptions - Top Doctors:</h1>
+                <h1 className="flex-1 ml-4 text-grey-dark font-medium text-md">New {product} Prescriptions - Top Doctors:</h1>
             </div>
             <ul className="-mt-4">
-            {Object.entries(info[value]).map( ([key, val]) => <Link href={`/profile/${val["id"]}`}><li className="text-grey-dark m-4 text-md ml-8 pl-2 hover:bg-grey-light">{`${val['first_name']} ${val['last_name']} - ${val[`NRx_Month_${value}`]} Perscriptions`}</li></Link> )}
+            {Object.entries(info[value]).map( ([key, val]) => <Link href={`/profile/${val["id"]}`}><li className="text-grey-dark m-4 text-md ml-8 pl-2 hover:bg-grey-light">{`${val['first_name']} ${val['last_name']} - ${val[`NRx_Month_${value}`]} Prescriptions`}</li></Link> )}
             </ul>
         </>
     )
