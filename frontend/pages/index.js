@@ -2,10 +2,8 @@ import 'tailwindcss/tailwind.css'
 import TotalPerscriptions from '../components/totalPerscriptions'
 import NewPerscriptions from '../components/newPerscriptions'
 import TopDoctorNewPerscriptions from '../components/topDoctorNewPerscriptions'
-import topDoctorNewPerscriptions from '../components/topDoctorNewPerscriptions'
 
 export default function Home() {
-  
   return (
     <>
       <main role="main" className="h-full inline w-full sm:w-3/4 md:w-4/5">

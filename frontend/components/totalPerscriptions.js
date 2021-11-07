@@ -1,9 +1,10 @@
 import useSwr from 'swr'
 import { Line } from 'react-chartjs-2';
+const api_link = require('../process')
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function TotalPerscriptions(){
-    const { data: info, error } = useSwr(`${process.env.API_LINK}/data/trx`, fetcher)
+    const { data: info, error } = useSwr(`${api_link}/data/trx`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
     console.log(info)

@@ -1,6 +1,6 @@
 import useSwr from 'swr'
 import React, { useState } from "react";
-
+const api_link = require('../process')
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function topDoctorNewPerscriptions(){
@@ -9,7 +9,7 @@ export default function topDoctorNewPerscriptions(){
     function logValue() {
         console.log(value);
     }
-    const { data: info, error } = useSwr(`${process.env.API_LINK}/topnew/Cholecap`, fetcher)
+    const { data: info, error } = useSwr(`${api_link}/topnew/Cholecap`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
     console.log(info)
