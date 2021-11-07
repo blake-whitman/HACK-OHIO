@@ -3,6 +3,7 @@
 • It graphically displays pharmaceutical prescriber data using JavaScript libraries and the React framework
 
 See below for more information regarding JavaScript libraries considered for this project:
+
   [https://www.chartjs.org]
 
 • Added the ability to report the top doctors based on total prescriptions (TRx) by
