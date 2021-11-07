@@ -13,13 +13,11 @@ export default function Home() {
             <input className="shadow-md rounded-lg bg-white h-10 px-5 pr-16" type="search" name="search" placeholder="Search" />
           </div>
         </div>
-        <div className="flex flex-wrap ml-10 mr-10 flex flex-wrap gap-8">
-          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"><TotalPerscriptions/></div>
-          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"><NewPerscriptions /></div>
-          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"><TopDoctorNewPerscriptions /></div>
-          <div className="flex-grow w-5/12 h-90 bg-white shadow-lg rounded-lg"></div>
-          
-
+        <div className="ml-10 mr-10 flex flex-wrap gap-8 mb-10">
+          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TotalPerscriptions/></div>
+          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><NewPerscriptions /></div>
+          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TopDoctorNewPerscriptions product="Cholecap"/></div>
+          <div className="flex-auto max-w-full h-72 w-72 bg-white shadow-lg rounded-lg"></div>
         </div>
       </main>
     </>

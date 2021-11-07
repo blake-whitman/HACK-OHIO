@@ -7,7 +7,6 @@ export default function TotalPerscriptions(){
     const { data: info, error } = useSwr(`${api_link}/data/trx`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
-    console.log(info)
     const data = {
         labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
         datasets: [],
@@ -38,10 +37,9 @@ export default function TotalPerscriptions(){
         },
     };
 
-    console.log(info);
     return(
         <> 
-            <h1 className="ml-4 mt-4 text-grey-dark font-medium text-md">Total Drug Trends</h1>
+            <h1 className="ml-4 mt-4 text-grey-dark font-medium text-md">Total Perscriptions Trends</h1>
             <Line className="m-4" data={data} options={options} />
         </>
     )

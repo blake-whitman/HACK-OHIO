@@ -1,51 +1,35 @@
-import { Bar } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { useRouter } from 'next/router'
 import useSwr from 'swr'
+import TotalDoctorPerscriptions from "../../../components/totalDoctorPerscriptions"
+const api_link = require('../../../process')
 
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
 export default function Profile() {
   const router = useRouter();
   const { id } = router.query;
-  const { data: info, error } = useSwr(`http://172.28.244.244:105/profile/${id}`, fetcher)
+  const { data: info, error } = useSwr(`${api_link}/profile/${id}`, fetcher)
   if (error) return <div>Faild to load data...</div>
   if (!info) return <div>Loading...</div>
   var data = {
     labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
     datasets: [
       {
-        label: 'New Perscriptions Perscriptions',
+        label: `New ${info.Product} Perscriptions`,
         data: [info.NRx_Month_1, info.NRx_Month_2, info.NRx_Month_3, info.NRx_Month_4, info.NRx_Month_5, info.NRx_Month_6],
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-        ],
-        borderColor: [
-          'rgba(255, 99, 132, 1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)',
-        ],
-        borderWidth: 1,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
       },
     ],
   };
   
   const options = {
     scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
+      y: {
+        beginAtZero: true
+      },
     },
   };
   if (error) {
@@ -76,10 +60,12 @@ export default function Profile() {
             </div>
         </div>
          <div className="-ml-2 my-4 flex flex-wrap gap-8">
-            <div className="flex-auto bg-white shadow-lg rounded-lg">
-              <Bar data={data} options={options} />
+            <div className="flex-auto p-4 max-w-full bg-white shadow-lg rounded-lg">
+              <Line data={data} options={options} />
             </div>
-            <div className="flex-auto bg-white shadow-lg rounded-lg h-72 w-72"></div>
+            <div className="flex-auto p-4 max-w-full bg-white shadow-lg rounded-lg">
+              <TotalDoctorPerscriptions info={info} />
+            </div>
             <div className="flex-auto bg-white shadow-lg rounded-lg h-72 w-72"></div>
         </div>
         </div>
