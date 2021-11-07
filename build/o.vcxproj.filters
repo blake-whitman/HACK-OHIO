@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\thebo\OneDrive - The Ohio State University\Useless\Desktop\HACK OH-IO\HACK-OHIO\o.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\thebo\OneDrive - The Ohio State University\Useless\Desktop\HACK OH-IO\HACK-OHIO\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{D21DEB88-3DD0-3CFF-ADCC-BAA9EE2DECDF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
