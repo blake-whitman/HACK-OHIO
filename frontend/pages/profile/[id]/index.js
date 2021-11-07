@@ -13,11 +13,11 @@ export default function Profile() {
   if (error) return <div>Faild to load data...</div>
   if (!info) return <div>Loading...</div>
   var data = {
-    labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
+    labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8', 'Month 9'],
     datasets: [
       {
-        label: `New ${info.Product} Perscriptions`,
-        data: [info.NRx_Month_1, info.NRx_Month_2, info.NRx_Month_3, info.NRx_Month_4, info.NRx_Month_5, info.NRx_Month_6],
+        label: `New ${info.Product} Perscriptions + 3 Month Prediction`,
+        data: [info.NRx_Month_1, info.NRx_Month_2, info.NRx_Month_3, info.NRx_Month_4, info.NRx_Month_5, info.NRx_Month_6, info.NRx_Month_7, info.NRx_Month_8, info.NRx_Month_9],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
         borderWidth: 1
