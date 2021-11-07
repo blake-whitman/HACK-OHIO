@@ -1,7 +1,7 @@
 import { Line } from 'react-chartjs-2';
 import { useRouter } from 'next/router'
 import useSwr from 'swr'
-import TotalDoctorPerscriptions from "../../../components/totalDoctorPerscriptions"
+import TotalDoctorPrescriptions from "../../../components/totalDoctorPrescriptions"
 const api_link = require('../../../process')
 
 
@@ -16,7 +16,7 @@ export default function Profile() {
     labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', 'Month 8', 'Month 9'],
     datasets: [
       {
-        label: `New ${info.Product} Perscriptions + 3 Month Prediction`,
+        label: `New ${info.Product} Prescriptions + 3 Month Prediction`,
         data: [info.NRx_Month_1, info.NRx_Month_2, info.NRx_Month_3, info.NRx_Month_4, info.NRx_Month_5, info.NRx_Month_6, info.NRx_Month_7, info.NRx_Month_8, info.NRx_Month_9],
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
@@ -64,7 +64,7 @@ export default function Profile() {
               <Line data={data} options={options} />
             </div>
             <div className="flex-auto p-4 max-w-full bg-white shadow-lg rounded-lg">
-              <TotalDoctorPerscriptions info={info} />
+              <TotalDoctorPrescriptions info={info} />
             </div>
             <div className="flex-auto bg-white shadow-lg rounded-lg h-72 w-72"></div>
         </div>

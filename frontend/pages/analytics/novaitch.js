@@ -1,5 +1,5 @@
 import Link from 'next/Link'
-import TopDoctorNewPerscriptions from '../../components/topDoctorNewPerscriptions'
+import TopDoctorNewPrescriptions from '../../components/topDoctorNewPrescriptions'
 
 export default function NovaItch(){
     return (
@@ -11,7 +11,7 @@ export default function NovaItch(){
         </div>
       </div>
       <div className="ml-10 mr-10 flex flex-wrap gap-8 mb-10">
-        <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TopDoctorNewPerscriptions product="Nova-itch"/></div>
+        <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TopDoctorNewPrescriptions product="Nova-itch"/></div>
         <div className="flex-auto max-w-full h-72 w-72 bg-white shadow-lg rounded-lg"></div>
         <div className="flex-auto max-w-full h-72 w-72 bg-white shadow-lg rounded-lg"></div>
         <div className="flex-auto max-w-full h-72 w-72 bg-white shadow-lg rounded-lg"></div>
