@@ -1,7 +1,7 @@
 import 'tailwindcss/tailwind.css'
-import TotalPrescriptions from '../components/totalPrescriptions'
-import NewPrescriptions from '../components/newPrescriptions'
-import TopDoctorNewPrescriptions from '../components/topDoctorNewPrescriptions'
+import TotalPerscriptions from '../components/totalPerscriptions'
+import NewPerscriptions from '../components/newPerscriptions'
+import TopDoctorNewPerscriptions from '../components/topDoctorNewPerscriptions'
 
 export default function Home() {
   return (
@@ -14,9 +14,9 @@ export default function Home() {
           </div>
         </div>
         <div className="ml-10 mr-10 flex flex-wrap gap-8 mb-10">
-          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TotalPrescriptions/></div>
-          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><NewPrescriptions /></div>
-          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TopDoctorNewPrescriptions product="Cholecap"/></div>
+          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TotalPerscriptions/></div>
+          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><NewPerscriptions /></div>
+          <div className="flex-auto max-w-full bg-white shadow-lg rounded-lg"><TopDoctorNewPerscriptions product="Cholecap"/></div>
           <div className="flex-auto max-w-full h-72 w-72 bg-white shadow-lg rounded-lg"></div>
         </div>
       </main>

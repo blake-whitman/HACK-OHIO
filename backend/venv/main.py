@@ -17,6 +17,7 @@ def estimate_coef(x, y):
     # mean of x and y vector
     m_x = np.mean(x)
     m_y = np.mean(y)
+
     # calculating cross-deviation and deviation about x
     SS_xy = np.sum(y * x) - n * m_y * m_x
     SS_xx = np.sum(x * x) - n * m_x * m_x
@@ -36,7 +37,7 @@ def predict_values(b, CONST):
 
 def predictNext(future, Rx):
     x = np.array([1, 2, 3, 4, 5, 6])  # months
-    y = Rx  # TRx or NRx depending on which set is imported
+    y = np.array(Rx).astype(np.int)  # TRx or NRx depending on which set is imported
     # estimating coefficients
     b = estimate_coef(x, y)
     print(
@@ -76,37 +77,25 @@ def data_trx():
     for data in query_db(
         "select sum(TRx_Month_1),  sum(TRx_Month_2), sum(TRx_Month_3), sum(TRx_Month_4), sum(TRx_Month_5), sum(TRx_Month_6) from mydb where Product='Cholecap';"
     ):
-        cholecap = list(data)
+        cholecap = data
     for data in query_db(
         "select sum(TRx_Month_1),  sum(TRx_Month_2), sum(TRx_Month_3), sum(TRx_Month_4), sum(TRx_Month_5), sum(TRx_Month_6) from mydb where Product='Zap-a-Pain';"
     ):
-        zap = list(data)
+        zap = data
     for data in query_db(
         "select sum(TRx_Month_1),  sum(TRx_Month_2), sum(TRx_Month_3), sum(TRx_Month_4), sum(TRx_Month_5), sum(TRx_Month_6) from mydb where Product='Nasalclear';"
     ):
-        nasalclear = list(data)
+        nasalclear = data
     for data in query_db(
         "select sum(TRx_Month_1),  sum(TRx_Month_2), sum(TRx_Month_3), sum(TRx_Month_4), sum(TRx_Month_5), sum(TRx_Month_6) from mydb where Product='Nova-itch';"
     ):
-        nova = list(data)
+        nova = data
 
-    cholecap2 = []
-    zap2 = []
-    nasalclear2 = []
-    nova2 = []
-    for i in range(7, 10):
-        cholecap2.append(predictNext(i, np.array(cholecap).astype(int)))
-    for i in range(7, 10):
-        zap2.append(predictNext(i, np.array(zap).astype(int)))
-    for i in range(7, 10):
-        nasalclear2.append(predictNext(i, np.array(nasalclear).astype(int)))
-    for i in range(7, 10):
-        nova2.append(predictNext(i, np.array(nova).astype(int)))
     result = {
-        "Cholecap": cholecap + cholecap2,
-        "Zap-a-Pain": zap + zap2,
-        "Nasalclear": nasalclear + nasalclear2,
-        "Nova-itch": nova + nova2,
+        "Cholecap": cholecap,
+        "Zap-a-Pain": zap,
+        "Nasalclear": nasalclear,
+        "Nova-itch": nova,
     }
 
     return json.dumps(result)
@@ -117,37 +106,27 @@ def data_nrx():
     for data in query_db(
         "select sum(NRx_Month_1),  sum(NRx_Month_2), sum(NRx_Month_3), sum(NRx_Month_4), sum(NRx_Month_5), sum(NRx_Month_6) from mydb where Product='Cholecap';"
     ):
-        cholecap = list(data)
+        cholecap = data
     for data in query_db(
         "select sum(NRx_Month_1),  sum(NRx_Month_2), sum(NRx_Month_3), sum(NRx_Month_4), sum(NRx_Month_5), sum(NRx_Month_6) from mydb where Product='Zap-a-Pain';"
     ):
-        zap = list(data)
+        zap = data
     for data in query_db(
         "select sum(NRx_Month_1),  sum(NRx_Month_2), sum(NRx_Month_3), sum(NRx_Month_4), sum(NRx_Month_5), sum(NRx_Month_6) from mydb where Product='Nasalclear';"
     ):
-        nasalclear = list(data)
+        nasalclear = data
     for data in query_db(
         "select sum(NRx_Month_1),  sum(NRx_Month_2), sum(NRx_Month_3), sum(NRx_Month_4), sum(NRx_Month_5), sum(NRx_Month_6) from mydb where Product='Nova-itch';"
     ):
-        nova = list(data)
-    cholecap2 = []
-    zap2 = []
-    nasalclear2 = []
-    nova2 = []
-    for i in range(7, 10):
-        cholecap2.append(predictNext(i, np.array(cholecap).astype(int)))
-    for i in range(7, 10):
-        zap2.append(predictNext(i, np.array(zap).astype(int)))
-    for i in range(7, 10):
-        nasalclear2.append(predictNext(i, np.array(nasalclear).astype(int)))
-    for i in range(7, 10):
-        nova2.append(predictNext(i, np.array(nova).astype(int)))
+        nova = data
+
     result = {
-        "Cholecap": cholecap + cholecap2,
-        "Zap-a-Pain": zap + zap2,
-        "Nasalclear": nasalclear + nasalclear2,
-        "Nova-itch": nova + nova2,
+        "Cholecap": cholecap,
+        "Zap-a-Pain": zap,
+        "Nasalclear": nasalclear,
+        "Nova-itch": nova,
     }
+
     return json.dumps(result)
 
 
@@ -177,30 +156,26 @@ def show_post(id):
     for i in range(7, 10):
         x["NRx_Month_{}".format(i)] = predictNext(
             i,
-            np.array(
-                [
-                    x["NRx_Month_1"],
-                    x["NRx_Month_2"],
-                    x["NRx_Month_3"],
-                    x["NRx_Month_4"],
-                    x["NRx_Month_5"],
-                    x["NRx_Month_6"],
-                ]
-            ).astype(int),
+            [
+                x["NRx_Month_1"],
+                x["NRx_Month_2"],
+                x["NRx_Month_3"],
+                x["NRx_Month_4"],
+                x["NRx_Month_5"],
+                x["NRx_Month_6"],
+            ],
         )
     for i in range(7, 10):
         x["TRx_Month_{}".format(i)] = predictNext(
             i,
-            np.array(
-                [
-                    x["TRx_Month_1"],
-                    x["TRx_Month_2"],
-                    x["TRx_Month_3"],
-                    x["TRx_Month_4"],
-                    x["TRx_Month_5"],
-                    x["TRx_Month_6"],
-                ]
-            ).astype(int),
+            [
+                x["TRx_Month_1"],
+                x["TRx_Month_2"],
+                x["TRx_Month_3"],
+                x["TRx_Month_4"],
+                x["TRx_Month_5"],
+                x["TRx_Month_6"],
+            ],
         )
 
     y = json.dumps(x)

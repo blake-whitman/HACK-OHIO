@@ -3,12 +3,12 @@ import { Line } from 'react-chartjs-2';
 const api_link = require('../process')
 
 const fetcher = (url) => fetch(url).then((res) => res.json())
-export default function TotalPrescriptions(){
+export default function TotalPerscriptions(){
     const { data: info, error } = useSwr(`${api_link}/data/trx`, fetcher)
     if (error) return <div>Faild to load data...</div>
     if (!info) return <div>Loading...</div>
     const data = {
-        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6', 'Month 7', "Month 8", "Month 9"],
+        labels: ['Month 1', 'Month 2', 'Month 3', 'Month 4', 'Month 5', 'Month 6'],
         datasets: [],
     };
     var colors = ['rgba(255, 99, 132, 1)',
@@ -39,7 +39,7 @@ export default function TotalPrescriptions(){
 
     return(
         <> 
-            <h1 className="ml-4 mt-4 text-grey-dark font-medium text-md">Total Prescriptions Trends</h1>
+            <h1 className="ml-4 mt-4 text-grey-dark font-medium text-md">Total Perscriptions Trends</h1>
             <Line className="m-4" data={data} options={options} />
         </>
     )

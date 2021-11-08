@@ -9,7 +9,7 @@ export default function Analytics(){
             <input className="shadow-md rounded-lg bg-white h-10 px-5 pr-16" type="search" name="search" placeholder="Search" />
           </div>
         </div>
-        <h1 className="text-3xl text-grey-dark ml-16">By Prescription</h1>
+        <h1 className="text-3xl text-grey-dark ml-16">By Perscription</h1>
         <div className="m-8 flex flex-row text-white gap-8">
             <Link href="/analytics/cholecap">
             <div className="transition duration-300 ease-in-out bg-drugs-red w-52 h-52 rounded-lg hover:drop-shadow-lg hover:shadow-lg hover:scale-105">
